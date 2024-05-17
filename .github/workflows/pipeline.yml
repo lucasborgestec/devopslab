@@ -45,7 +45,7 @@ jobs:
 
       - name: New Relic License
         run: |
-          sed -i "s/licensekey/${{ vars.NEW_RELIC_LICENSE_KEY }}/g" Dockerfile
+          sed -i "s/licensekey/${{ secrets.NEW_RELIC_LICENSE_KEY }}/g" Dockerfile
           cat Dockerfile
 
       - name: Build Image
@@ -118,4 +118,3 @@ jobs:
         uses: zaproxy/action-full-scan@v0.10.0    # https://github.com/marketplace/actions/zap-full-scan
         with:
           target: 'https://lucasborgesapp-nu2ly27wnq-ue.a.run.app/'
-          
